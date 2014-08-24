@@ -8,6 +8,9 @@ projects to share an annotation dictionary without conflicts.  Thus, a linter
 and a documentation project can both be used on the same project at the same
 time.  The following example may make things clearer::
 
+    # Actual convention uses UUID instances, these strings are for example
+    # only.
+
     an1 = annotizer("The linter's unique ID")
     an2 = annotizer("The documentor's unique ID")
 
@@ -33,6 +36,9 @@ I propose that all annotations be dictionaries keyed by some unique
 identifier.  The annotation dictionary for ``func`` from the prior section
 would be::
 
+    # Actual convention uses UUID instances, these strings are for example
+    # only.
+
     {'a': {"The linter's unique ID": {'type': str},
            "The documentor's unique ID": {'doc': 'A'}},
      'b': {"The linter's unique ID": {'type': str},
@@ -46,6 +52,18 @@ In this case, neither the documentation project, nor the linter project had
 any knowledge of the other.  Both were used successfully in a third project,
 without harming the other.  I believe that this is the correct way forward to
 ensure that we can all use the annotation dictionary without conflict.
+
+===================
+Why UUID Instances?
+===================
+
+Humans are **terrible** at choosing unique names, and programmers are trained
+to be even worse.  As programmers, we want to make our code as clear as
+possible; that means that different programmers that are working to solve the
+same problem are likely to use the same name for their projects.  To prevent
+this from becoming a serious problem, I propose that we use ``uuid.UUID``
+instances exclusively.  The code currently rejects anything that isn't a
+`uuid.UUID <https://docs.python.org/3/library/uuid.html#uuid.UUID>`_ instance.
 
 ==============
 Current Status
