@@ -46,3 +46,11 @@ In this case, neither the documentation project, nor the linter project had
 any knowledge of the other.  Both were used successfully in a third project,
 without harming the other.  I believe that this is the correct way forward to
 ensure that we can all use the annotation dictionary without conflict.
+
+==============
+Current Status
+==============
+
+The code is currently only a proof-of-concept.  The easiest way to see how it
+works is to read it.  I know that there are shortcomings; suggestions or
+patches are welcome!
