@@ -72,3 +72,11 @@ Current Status
 The code is currently only a proof-of-concept.  The easiest way to see how it
 works is to read it.  I know that there are shortcomings; suggestions or
 patches are welcome!
+
+==========================
+The Annotizer's Project ID
+==========================
+
+The UUID for the Annotizer project is::
+
+    UUID('f9bbc165-d904-4452-b858-fc5c9f104c87')
