@@ -5,11 +5,10 @@ __docformat__ = "restructuredtext en"
 
 import inspect
 import uuid
-import pprint
 
 ##############################################################################
 ##############################################################################
-### Helper classes
+# Helper classes
 ##############################################################################
 ##############################################################################
 
@@ -45,6 +44,7 @@ class _parameter_decorator(object):
     # End of __call__()
 # End of class _parameter_decorator
 
+
 class _return_decorator(object):
     """
     This class adds a documentation string to the annotations of a function or
@@ -72,7 +72,7 @@ class _return_decorator(object):
 
 ##############################################################################
 ##############################################################################
-### annotizer
+# annotizer
 ##############################################################################
 ##############################################################################
 
@@ -123,10 +123,13 @@ class annotizer(object):
 
     def parameter_decorator_class():
         doc = ("Instances of this class may be used to decorate")
+
         def fget(self):
             return self._parameter_decorator_class
+
         def fset(self, value):
             self._parameter_decorator_class = value
+
         def fdel(self):
             self._parameter_decorator_class = _parameter_decorator
         return locals()
@@ -134,10 +137,13 @@ class annotizer(object):
 
     def return_decorator_class():
         doc = "The return_decorator_class property."
+
         def fget(self):
             return self._return_decorator_class
+
         def fset(self, value):
             self._return_decorator_class = value
+
         def fdel(self):
             self._return_decorator_class = _return_decorator
         return locals()
@@ -156,9 +162,12 @@ class annotizer(object):
 
 ##############################################################################
 ##############################################################################
-### Main
+# Main
 ##############################################################################
 ##############################################################################
+
+
+import pprint
 
 if __name__ == "__main__":
     ID1 = uuid.uuid1()
@@ -170,8 +179,7 @@ if __name__ == "__main__":
     @an2.parameter_decorator(a="A", b="B", c="C")
     @an1.return_decorator("Doesn't return anything of value")
     @an2.return_decorator("Does not return a value")
-    def func(a,b,c):
-        print("a = {0!s}, b = {1!s}, c = {2!s}".format(a,b,c))
+    def func(a, b, c):
+        print("a = {0!s}, b = {1!s}, c = {2!s}".format(a, b, c))
 
     pprint.pprint(func.__annotations__)
-
