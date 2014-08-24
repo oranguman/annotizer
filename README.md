@@ -63,7 +63,7 @@ possible; that means that different programmers that are working to solve the
 same problem are likely to use the same name for their projects.  To prevent
 this from becoming a serious problem, I propose that we use ``uuid.UUID``
 instances exclusively.  The code currently rejects anything that isn't a
-`uuid.UUID <https://docs.python.org/3/library/uuid.html#uuid.UUID>`_ instance.
+[uuid.UUID](https://docs.python.org/3/library/uuid.html#uuid.UUID) instance.
 
 ==============
 Current Status
